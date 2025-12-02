@@ -46,8 +46,9 @@ Rider.Backend.log
 appsettings.Development.json
 appsettings.Staging.json
 appsettings.Production.json
-appsettings.*.json
+appsettings.json
 connectionstrings.json
+/Properties/launchSettings.json
 
 # Test results
 TestResults/
