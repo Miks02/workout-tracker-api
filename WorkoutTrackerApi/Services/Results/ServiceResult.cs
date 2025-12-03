@@ -27,7 +27,7 @@ public class ServiceResult
 
 public class ServiceResult<T> : ServiceResult
 {
-    private T? Payload { get; }
+    public T? Payload { get; }
 
     private ServiceResult(bool isSucceeded, IReadOnlyList<Error> errors) : base(isSucceeded, errors)
     {

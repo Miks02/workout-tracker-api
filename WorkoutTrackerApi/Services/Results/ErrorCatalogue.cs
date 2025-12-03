@@ -5,7 +5,7 @@ public sealed class Error
     public string Code { get; }
     public string Description { get; }
 
-    private Error(string code, string description)
+    public Error(string code, string description)
     {
         if (string.IsNullOrWhiteSpace(code))
             throw new ArgumentException("Code cannot be null or whitespace", nameof(code));
@@ -19,6 +19,8 @@ public sealed class Error
 
     public static class General
     {
+        public static Error IdentityError(string message = "Error occurred while doing an identity operation")
+            => new("General.IdentityError", message);
         
         public static Error NotFound(string message = "The requested resource was not found")
             => new("General.NotFound", message);
@@ -53,6 +55,12 @@ public sealed class Error
     
     public static class Auth
     {
+        public static Error RegistrationFailed(string message = "Unexpected error happened during registration")
+            => new("Auth.RegistrationFailed", message);
+        
+        public static Error LoginFailed(string message = "Unexpected error happened during login")
+            => new("Auth.LoginFailed", message);
+        
         public static Error PasswordError(string message = "Error occurred while trying to assign password to the user")
             => new("Auth.InvalidCredentials", message);
 

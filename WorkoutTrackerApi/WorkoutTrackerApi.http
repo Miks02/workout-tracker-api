@@ -1,2 +1,13 @@
 @Address = https://localhost:7263
 
+POST {{Address}}/api/Auth/register
+Content-Type: application/json
+
+{
+  "FirstName": "Milan",
+  "LastName": "Nikolić",
+  "UserName": "mixx02",
+  "Email": "milan.miki.nikolic2002@gmail.om",
+  "Password": "miki3112002",
+  "ConfirmPassword": "miki3112002"
+}
