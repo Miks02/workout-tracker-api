@@ -66,6 +66,12 @@ public sealed class Error
 
         public static Error AccountLocked(string message = "Account is locked")
             => new("Auth.AccountLocked", message);
+
+        public static Error JwtError(string message = "Error happened while trying to assign refresh token to the user")
+            => new("Auth.JwtError", message);
+
+        public static Error ExpiredToken(string message = "Refresh token has expired")
+            => new("Auth.ExpiredToken", message);
     }
     
     public static class User
