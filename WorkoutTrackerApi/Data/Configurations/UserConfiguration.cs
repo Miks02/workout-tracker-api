@@ -38,6 +38,9 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.HasIndex(p => p.Email)
             .IsUnique();
+        
+        builder.Property(p => p.CreatedAt)
+            .HasDefaultValueSql("GETUTCDATE()");
 
         builder
             .HasMany(u => u.Workouts)
@@ -50,5 +53,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .WithOne(c => c.User)
             .HasForeignKey(c => c.UserId)
             .OnDelete(DeleteBehavior.Cascade);
+        
+        
     }
 }

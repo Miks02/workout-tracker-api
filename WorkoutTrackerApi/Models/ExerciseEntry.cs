@@ -6,7 +6,7 @@ public class ExerciseEntry
 {
     public int Id { get; set; }
 
-    public string ExerciseName { get; set; } = null!;
+    public string Name { get; set; } = null!;
     public ExerciseType ExerciseType { get; set; }
     
     public int WorkoutId { get; set; }
