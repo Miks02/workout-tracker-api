@@ -107,4 +107,10 @@ public sealed class Error
             return new Error("User.NotFound", message);
         }
     }
+
+    public static class Database
+    {
+        public static Error DatabaseError(string message = "Error happened while adding an entity to the database")
+            => new("Database.AddFailed", message);
+    }
 }
