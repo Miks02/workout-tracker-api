@@ -9,11 +9,20 @@ public class ExerciseEntryDto
 
     public string Name { get; set; } = null!;
     public ExerciseType ExerciseType { get; set; }
+    public CardioType? CardioType { get; set; }
     
     public double? DistanceKm { get; set; }
     public TimeSpan? Duration { get; set; }
     public int? AvgHeartRate { get; set; }
+    public int? MaxHeartRate { get; set; }
+
     public double? CaloriesBurned { get; set; }
+
+    public double? PaceMinPerKm { get; set; }
+
+    public int? WorkIntervalSec { get; set; }
+    public int? RestIntervalSec { get; set; }
+    public int? IntervalsCount { get; set; }
     
     public IEnumerable<SetEntryDto> Sets { get; set; } = [];
 }
