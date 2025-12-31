@@ -51,7 +51,8 @@ namespace WorkoutTrackerApi.Controllers
         [HttpGet("test")]
         public IActionResult Test()
         {
-            return Ok(new { message = "You are authenticated", user = $"{User.Identity!.Name}" });
+            
+            return Ok(new { message = "You are authenticated", userId = $"{User.FindFirstValue(ClaimTypes.NameIdentifier)}"});
         }
 
         [HttpPost("refresh-token")]
