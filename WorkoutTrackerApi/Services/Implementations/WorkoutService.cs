@@ -72,10 +72,16 @@ public class WorkoutService : BaseService<WorkoutService> , IWorkoutService
             {
                 Name = e.Name,
                 ExerciseType = e.ExerciseType,
+                CardioType = e.CardioType,
                 DistanceKm = e.DistanceKm,
                 Duration = e.Duration,
                 AvgHeartRate = e.AvgHeartRate,
+                MaxHeartRate = e.MaxHeartRate,
                 CaloriesBurned = e.CaloriesBurned,
+                PaceMinPerKm = e.PaceMinPerKm,
+                WorkIntervalSec = e.WorkIntervalSec,
+                RestIntervalSec = e.RestIntervalSec,
+                IntervalsCount = e.IntervalsCount,
                 Sets = e.Sets.Select(s => new SetEntry()
                 {
                     Reps = s.Reps,
@@ -98,7 +104,7 @@ public class WorkoutService : BaseService<WorkoutService> , IWorkoutService
 
         LogInformation("Workout has been added successfully");
 
-        var workoutDto = MapToWorkoutDto().Invoke(newWorkout);
+        var workoutDto = MapToWorkoutDetailsDto().Invoke(newWorkout);
         
         return ServiceResult<WorkoutDetailsDto>.Success(workoutDto);
     }
@@ -175,22 +181,28 @@ public class WorkoutService : BaseService<WorkoutService> , IWorkoutService
                 Id = e.Id,
                 Name = e.Name,
                 ExerciseType = e.ExerciseType,
+                CardioType = e.CardioType,
                 AvgHeartRate = e.AvgHeartRate,
+                MaxHeartRate = e.MaxHeartRate,
                 CaloriesBurned = e.CaloriesBurned,
                 DistanceKm = e.DistanceKm,
                 Duration = e.Duration,
+                PaceMinPerKm = e.PaceMinPerKm,
+                WorkIntervalSec = e.WorkIntervalSec,
+                RestIntervalSec = e.RestIntervalSec,
+                IntervalsCount = e.IntervalsCount,
                 Sets = e.Sets.Select(s => new SetEntryDto()
                 {
                     Id = s.Id,
                     Reps = s.Reps,
                     WeightKg = s.WeightKg
                 })
-            })
+            }).ToList()
         };
 
     }
 
-    private static Func<Workout, WorkoutDetailsDto> MapToWorkoutDto()
+    private static Func<Workout, WorkoutDetailsDto> MapToWorkoutDetailsDto()
     {
         return w => new WorkoutDetailsDto
         {

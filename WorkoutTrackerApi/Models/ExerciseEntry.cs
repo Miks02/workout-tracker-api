@@ -22,7 +22,7 @@ public class ExerciseEntry
     
     public double? CaloriesBurned { get; set; }
     
-    public double PaceMinPerKm { get; set; }
+    public double? PaceMinPerKm { get; set; }
     
     public int? WorkIntervalSec { get; set; }
     public int? RestIntervalSec { get; set; }
